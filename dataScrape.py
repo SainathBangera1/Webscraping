@@ -12,6 +12,7 @@ date_ArrayString = []
 ############################################ DATE AND YEAR ############################################
 date_Array = []
 date_Test = []
+
 for i in range(1997, 2023):
     year = i
     # Opening the html file. If the file
@@ -281,5 +282,3 @@ with open('dataset.csv', 'w+') as file:
     myFile.writerow(description)
     for i in range(len(ascendingOrder)):
         myFile.writerow(ascendingOrder[i])
-
-print("Webscraping Completed...")
