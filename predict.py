@@ -2,6 +2,7 @@ from dataScrape import newDataSetArray
 from datetime import datetime
 import sys
 import time
+import csv
 print("Loading....")
 syms = ['\\', '|', '/', '-']
 bs = '\b'
@@ -83,4 +84,17 @@ for i in range(1, 91):
     freq_6th_Digit.append([i, count])
     count = 0
 
-print(freq_6th_Digit)
+_6numbersArray = [freq_1st_Digit, freq_2nd_Digit,
+                  freq_3rd_Digit, freq_4th_Digit, freq_5th_Digit, freq_6th_Digit]
+
+heading = ["Ball Numbers", "1st Digit Freq", "2nd Digit Freq",
+           "3rd Digit Freq", "4th Digit Freq", "5th Digit Freq", "6th Digit Freq"]
+
+with open('dataFreq.csv', 'w+') as file:
+    myFile = csv.writer(file)
+    myFile.writerow(heading)
+    for i in range(len(freq_1st_Digit)):
+        myFile.writerow([freq_1st_Digit[i][0], freq_1st_Digit[i][1], freq_2nd_Digit[i][1],
+                        freq_3rd_Digit[i][1], freq_4th_Digit[i][1], freq_5th_Digit[i][1], freq_6th_Digit[i][1]])
+
+print("Program Terminated...")
