@@ -51,7 +51,7 @@ for i in range(1997, 2023):
         <style>\n
         div {
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: auto auto auto auto auto auto;
         grid-gap: 10px;
         padding: 10px;
         }\n
@@ -73,7 +73,7 @@ for i in range(1997, 2023):
     for j in range(len(data)):
         if (data[j][0][2] == i):
             content += '''\n <table> '''
-            content += '''\n <tr><th colspan="10">''' + \
+            content += '''\n <tr><th bgcolor='yellow' colspan="10">''' + \
                 str(data[j][1])+'''</th></tr>\n'''
             count = 0
             start = 1
@@ -85,7 +85,8 @@ for i in range(1997, 2023):
                         content += "\n <td bgcolor='red' style='color:white'" + \
                             ">"+str(k)+"</td>\n"
                     else:
-                        content += "\n <td>"+str(k)+"</td>\n"
+                        content += "\n <td bgcolor='yellow' style='color:dark green'>" + \
+                            str(k)+"</td>\n"
                 content += "</tr>\n"
                 start = end
                 end = end+10

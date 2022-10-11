@@ -1,4 +1,4 @@
-from dataScrape import newDataSetArray
+from dataScrape import ascendingOrder
 import sys
 import time
 import csv
@@ -9,7 +9,7 @@ data = []
 va = True
 for _ in range(10):
     if (va == True):
-        data = newDataSetArray
+        data = ascendingOrder
         va = False
     for sym in syms:
         sys.stdout.write("\b%s" % sym)
@@ -113,97 +113,128 @@ for i in range(len(data)):
     difference_Array_2.append(abs(data[i][4] - data[i][5]))
     difference_Array_3.append(abs(data[i][3] - data[i][6]))
 
-difference_Array_1 = list(set(difference_Array_1))
-difference_Array_2 = list(set(difference_Array_2))
-difference_Array_3 = list(set(difference_Array_3))
-# # for j in range(len(difference_Array_1)):
-# #     print(difference_Array_1[j])
 
-# print(str(set(difference_Array_1)))
-# print(str(set(difference_Array_2)))
-# print(str(set(difference_Array_3)))
+data_for_Linear_Regression = []
+data_for_Linear_Regression_TITLE = ['Date', '1st_Digit', '2nd_Digit', '3rd_Digit',
+                                    '4th_Digit', '5th_Digit', '6th_Digit', 'Diff(1st-6th)', 'Diff(3rd-4th)', 'Diff(2nd-5th)']
+# preparing array containing all 6 numbers date wise with their difference (1-6),(3-4),(2-5)
+for i in range(len(data)):
+    data_for_Linear_Regression.append([data[i][1], data[i][2], data[i][3], data[i][4], data[i][5],
+                                      data[i][6], data[i][7], difference_Array_1[i], difference_Array_2[i], difference_Array_3[i]])
 
-date_Ball_Difference_1 = []
+data_for_Linear_Regression_NEW = []
 
-for i in range(len(difference_Array_1)):
-    setComman = []
-    for j in range(len(data)):
-        if (difference_Array_1[i] == abs(data[j][7]-data[j][2])):
-            setComman.append(data[j][1])
-    if (setComman != []):
-        setComman.insert(0, difference_Array_1[i])
-        date_Ball_Difference_1.append(setComman)
-    setComman = []
+# preparing array containing all 6 numbers date wise
+for i in range(len(data)):
+    data_for_Linear_Regression_NEW.append([data[i][1], data[i][2], data[i][3], data[i][4], data[i][5],
+                                           data[i][6], data[i][7]])
+
+with open('data_Linear_Regression.csv', 'w+') as file:
+    myFile = csv.writer(file)
+    myFile.writerow(data_for_Linear_Regression_TITLE)
+    for i in data_for_Linear_Regression:
+        myFile.writerow(i)
+
+data_for_Linear_Regression_NEW_TITLE = ['Date', '1st_Digit', '2nd_Digit', '3rd_Digit',
+                                        '4th_Digit', '5th_Digit', '6th_Digit']
+
+with open('new_data_Linear_Regression.csv', 'w+') as file:
+    myFile = csv.writer(file)
+    myFile.writerow(data_for_Linear_Regression_NEW_TITLE)
+    for i in data_for_Linear_Regression_NEW:
+        myFile.writerow(i)
+
+# difference_Array_1 = list(set(difference_Array_1))
+# difference_Array_2 = list(set(difference_Array_2))
+# difference_Array_3 = list(set(difference_Array_3))
+# # # for j in range(len(difference_Array_1)):
+# # #     print(difference_Array_1[j])
+
+# # print(str(set(difference_Array_1)))
+# # print(str(set(difference_Array_2)))
+# # print(str(set(difference_Array_3)))
+
+# date_Ball_Difference_1 = []
+
+# for i in range(len(difference_Array_1)):
+#     setComman = []
+#     for j in range(len(data)):
+#         if (difference_Array_1[i] == abs(data[j][7]-data[j][2])):
+#             setComman.append(data[j][1])
+#     if (setComman != []):
+#         setComman.insert(0, difference_Array_1[i])
+#         date_Ball_Difference_1.append(setComman)
+#     setComman = []
 
 
-# with open('difference_1.csv', 'w+') as file:
+# # with open('difference_1.csv', 'w+') as file:
+# #     myFile = csv.writer(file)
+# #     for i in date_Ball_Difference:
+# #         myFile.writerow(i)
+
+# difference_Array_1_REPEAT = []
+
+
+# for i in range(len(date_Ball_Difference_1)):
+#     difference_Array_1_REPEAT.append(
+#         [date_Ball_Difference_1[i][0], (len(date_Ball_Difference_1[i])-1)])
+
+# with open('difference_1_REPEAT.csv', 'w+') as file:
 #     myFile = csv.writer(file)
-#     for i in date_Ball_Difference:
+#     for i in difference_Array_1_REPEAT:
 #         myFile.writerow(i)
 
-difference_Array_1_REPEAT = []
+
+# date_Ball_Difference_2 = []
+
+# for i in range(len(difference_Array_2)):
+#     setComman = []
+#     for j in range(len(data)):
+#         if (difference_Array_2[i] == abs(data[j][7]-data[j][2])):
+#             setComman.append(data[j][1])
+#     if (setComman != []):
+#         setComman.insert(0, difference_Array_2[i])
+#         date_Ball_Difference_2.append(setComman)
+#     setComman = []
 
 
-for i in range(len(date_Ball_Difference_1)):
-    difference_Array_1_REPEAT.append(
-        [date_Ball_Difference_1[i][0], (len(date_Ball_Difference_1[i])-1)])
-
-with open('difference_1_REPEAT.csv', 'w+') as file:
-    myFile = csv.writer(file)
-    for i in difference_Array_1_REPEAT:
-        myFile.writerow(i)
+# difference_Array_2_REPEAT = []
 
 
-date_Ball_Difference_2 = []
+# for i in range(len(date_Ball_Difference_2)):
+#     difference_Array_2_REPEAT.append(
+#         [date_Ball_Difference_2[i][0], (len(date_Ball_Difference_2[i])-1)])
 
-for i in range(len(difference_Array_2)):
-    setComman = []
-    for j in range(len(data)):
-        if (difference_Array_2[i] == abs(data[j][7]-data[j][2])):
-            setComman.append(data[j][1])
-    if (setComman != []):
-        setComman.insert(0, difference_Array_2[i])
-        date_Ball_Difference_2.append(setComman)
-    setComman = []
+# with open('difference_2_REPEAT.csv', 'w+') as file:
+#     myFile = csv.writer(file)
+#     for i in difference_Array_2_REPEAT:
+#         myFile.writerow(i)
 
 
-difference_Array_2_REPEAT = []
+# date_Ball_Difference_3 = []
+
+# for i in range(len(difference_Array_3)):
+#     setComman = []
+#     for j in range(len(data)):
+#         if (difference_Array_3[i] == abs(data[j][7]-data[j][2])):
+#             setComman.append(data[j][1])
+#     if (setComman != []):
+#         setComman.insert(0, difference_Array_3[i])
+#         date_Ball_Difference_3.append(setComman)
+#     setComman = []
 
 
-for i in range(len(date_Ball_Difference_2)):
-    difference_Array_2_REPEAT.append(
-        [date_Ball_Difference_2[i][0], (len(date_Ball_Difference_2[i])-1)])
-
-with open('difference_2_REPEAT.csv', 'w+') as file:
-    myFile = csv.writer(file)
-    for i in difference_Array_2_REPEAT:
-        myFile.writerow(i)
+# difference_Array_3_REPEAT = []
 
 
-date_Ball_Difference_3 = []
+# for i in range(len(date_Ball_Difference_3)):
+#     difference_Array_3_REPEAT.append(
+#         [date_Ball_Difference_3[i][0], (len(date_Ball_Difference_3[i])-1)])
 
-for i in range(len(difference_Array_3)):
-    setComman = []
-    for j in range(len(data)):
-        if (difference_Array_3[i] == abs(data[j][7]-data[j][2])):
-            setComman.append(data[j][1])
-    if (setComman != []):
-        setComman.insert(0, difference_Array_3[i])
-        date_Ball_Difference_3.append(setComman)
-    setComman = []
-
-
-difference_Array_3_REPEAT = []
-
-
-for i in range(len(date_Ball_Difference_3)):
-    difference_Array_3_REPEAT.append(
-        [date_Ball_Difference_3[i][0], (len(date_Ball_Difference_3[i])-1)])
-
-with open('difference_3_REPEAT.csv', 'w+') as file:
-    myFile = csv.writer(file)
-    for i in difference_Array_3_REPEAT:
-        myFile.writerow(i)
+# with open('difference_3_REPEAT.csv', 'w+') as file:
+#     myFile = csv.writer(file)
+#     for i in difference_Array_3_REPEAT:
+#         myFile.writerow(i)
 
 
 print("Program Terminated...")
