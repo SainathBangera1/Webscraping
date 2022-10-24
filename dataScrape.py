@@ -13,7 +13,7 @@ date_ArrayString = []
 date_Array = []
 date_Test = []
 
-for i in range(1997, 2023):
+for i in range(2009, 2023):
     year = i
     # Opening the html file. If the file
     # is present in different location,
@@ -74,119 +74,121 @@ for y in range(len(date_Array)):
 
 
 ######################################## 1997 to 2005 #######################################################
-for i in range(1997, 2006):
-    year = i
-    # Opening the html file. If the file
-    # is present in different location,
-    # exact location need to be mentioned
-    #HTMLFileToBeOpened = open("htmlData/2006.html", "r")
-    HTMLFileToBeOpened = open('htmlData/'+str(i)+".html", "r")
 
-    # Reading the file and storing in a variable
-    contents = HTMLFileToBeOpened.read()
+# for i in range(1997, 2006):
+#     year = i
+#     # Opening the html file. If the file
+#     # is present in different location,
+#     # exact location need to be mentioned
+#     #HTMLFileToBeOpened = open("htmlData/2006.html", "r")
+#     HTMLFileToBeOpened = open('htmlData/'+str(i)+".html", "r")
 
-    # Creating a BeautifulSoup object and
-    # specifying the parser
-    beautifulSoupText = BeautifulSoup(str(contents), 'html.parser')
-    balls = beautifulSoupText.find_all('ul', class_='balls')
-    # ball_Array = []
-    jolly = beautifulSoupText.find_all('li', class_='jolly')
-    # jolly_Array = []
+#     # Reading the file and storing in a variable
+#     contents = HTMLFileToBeOpened.read()
 
-    for i in range(len(jolly)):
-        # jollyArray.append(jolly[i].decode_contents())
-        jolly_Array.append(int(jolly[i].decode_contents()))
+#     # Creating a BeautifulSoup object and
+#     # specifying the parser
+#     beautifulSoupText = BeautifulSoup(str(contents), 'html.parser')
+#     balls = beautifulSoupText.find_all('ul', class_='balls')
+#     # ball_Array = []
+#     jolly = beautifulSoupText.find_all('li', class_='jolly')
+#     # jolly_Array = []
 
-    # fillterdBallArray carries the 6 numbers filltered from the jolly and superstar numbers
-    fillterdBallArray = []
-    for i in range(len(balls)):
-        strING = str(balls[i])
-        bool = '<li class="jolly">' in strING
-        # bool2 = '<li class="superstar">' in strING
-        if (bool == False):
-            fillterdBallArray.append(balls[i])
+#     for i in range(len(jolly)):
+#         # jollyArray.append(jolly[i].decode_contents())
+#         jolly_Array.append(int(jolly[i].decode_contents()))
 
-    for i in range(len(fillterdBallArray)):
-        daySetNum = []
-        daySetNum2 = []
-        for j in fillterdBallArray[i]:
-            daySetNum.append(j)
-        for k in range(len(daySetNum)):
-            if (not daySetNum[k] == ' '):
-                daySetNum2.append(daySetNum[k])
-        setNum = []
-        for l in range(len(daySetNum2)):
-            for num in daySetNum2[l]:
-                setNum.append(int(num))
-        ball_Array.append(setNum)
+#     # fillterdBallArray carries the 6 numbers filltered from the jolly and superstar numbers
+#     fillterdBallArray = []
+#     for i in range(len(balls)):
+#         strING = str(balls[i])
+#         bool = '<li class="jolly">' in strING
+#         # bool2 = '<li class="superstar">' in strING
+#         if (bool == False):
+#             fillterdBallArray.append(balls[i])
 
-for x in range(len(ball_Array)):
-    ball_Array[x].append(jolly_Array[x])
-dataSetArray = ball_Array
+#     for i in range(len(fillterdBallArray)):
+#         daySetNum = []
+#         daySetNum2 = []
+#         for j in fillterdBallArray[i]:
+#             daySetNum.append(j)
+#         for k in range(len(daySetNum)):
+#             if (not daySetNum[k] == ' '):
+#                 daySetNum2.append(daySetNum[k])
+#         setNum = []
+#         for l in range(len(daySetNum2)):
+#             for num in daySetNum2[l]:
+#                 setNum.append(int(num))
+#         ball_Array.append(setNum)
 
+# for x in range(len(ball_Array)):
+#     ball_Array[x].append(jolly_Array[x])
+# dataSetArray = ball_Array
+# print("Done with writing 1997 to 2005 Data")
 ################################################### ONLY 2006 ########################################################
 # superstart numbers where introduced in this year after March 2006 hence the data is till jolly number only
-ball_Array = []
-jolly_Array = []
-HTMLFileToBeOpened = open('htmlData/2006.html', "r")
 
-# Reading the file and storing in a variable
-contents = HTMLFileToBeOpened.read()
-
-# Creating a BeautifulSoup object and
-# specifying the parser
-beautifulSoupText = BeautifulSoup(str(contents), 'html.parser')
-balls = beautifulSoupText.find_all('ul', class_='balls')
 # ball_Array = []
-jolly = beautifulSoupText.find_all('li', class_='jolly')
+# jolly_Array = []
+# HTMLFileToBeOpened = open('htmlData/2006.html', "r")
 
-# drawDate = beautifulSoupText.find_all('td', class_='date')
-# print(drawDate)
+# # Reading the file and storing in a variable
+# contents = HTMLFileToBeOpened.read()
+
+# # Creating a BeautifulSoup object and
+# # specifying the parser
+# beautifulSoupText = BeautifulSoup(str(contents), 'html.parser')
+# balls = beautifulSoupText.find_all('ul', class_='balls')
+# # ball_Array = []
+# jolly = beautifulSoupText.find_all('li', class_='jolly')
+
+# # drawDate = beautifulSoupText.find_all('td', class_='date')
+# # print(drawDate)
 
 
-for i in range(len(jolly)):
-    # jollyArray.append(jolly[i].decode_contents())
-    jolly_Array.append(int(jolly[i].decode_contents()))
+# for i in range(len(jolly)):
+#     # jollyArray.append(jolly[i].decode_contents())
+#     jolly_Array.append(int(jolly[i].decode_contents()))
 
-# fillterdBallArray carries the 6 numbers filltered from the jolly and superstar numbers
-fillterdBallArray = []
-for i in range(len(balls)):
-    strING = str(balls[i])
-    bool = '<li class="jolly">' in strING
-    bool2 = '<li class="superstar">' in strING
-    if (bool == False):
-        fillterdBallArray.append(balls[i])
+# # fillterdBallArray carries the 6 numbers filltered from the jolly and superstar numbers
+# fillterdBallArray = []
+# for i in range(len(balls)):
+#     strING = str(balls[i])
+#     bool = '<li class="jolly">' in strING
+#     bool2 = '<li class="superstar">' in strING
+#     if (bool == False):
+#         fillterdBallArray.append(balls[i])
 
-for i in range(len(fillterdBallArray)):
-    daySetNum = []
-    daySetNum2 = []
-    for j in fillterdBallArray[i]:
-        daySetNum.append(j)
-    for k in range(len(daySetNum)):
-        if (not daySetNum[k] == ' '):
-            daySetNum2.append(daySetNum[k])
-    setNum = []
-    for l in range(len(daySetNum2)):
-        for num in daySetNum2[l]:
-            setNum.append(int(num))
-    ball_Array.append(setNum)
+# for i in range(len(fillterdBallArray)):
+#     daySetNum = []
+#     daySetNum2 = []
+#     for j in fillterdBallArray[i]:
+#         daySetNum.append(j)
+#     for k in range(len(daySetNum)):
+#         if (not daySetNum[k] == ' '):
+#             daySetNum2.append(daySetNum[k])
+#     setNum = []
+#     for l in range(len(daySetNum2)):
+#         for num in daySetNum2[l]:
+#             setNum.append(int(num))
+#     ball_Array.append(setNum)
 
-newBallArray = []
-for x in range(len(ball_Array)):
-    if (len(ball_Array[x]) == 6):
-        newBallArray.append(ball_Array[x])
+# newBallArray = []
+# for x in range(len(ball_Array)):
+#     if (len(ball_Array[x]) == 6):
+#         newBallArray.append(ball_Array[x])
 
-for x in range(len(jolly_Array)):
-    newBallArray[x].append(jolly_Array[x])
+# for x in range(len(jolly_Array)):
+#     newBallArray[x].append(jolly_Array[x])
 
-for y in newBallArray:
-    dataSetArray.append(y)
-
+# for y in newBallArray:
+#     dataSetArray.append(y)
+# print("Done with writing 2006 Data")
 ################################################### 2007 to 2023 ####################################################
 ball_Array = []
 jolly_Array = []
 superStar_Array = []
-for i in range(2007, 2023):
+for i in range(2009, 2023):
     year = i
     # Opening the html file. If the file
     # is present in different location,
@@ -263,7 +265,7 @@ for m in range(len(dataSetArray)):
 ascendingOrder = []
 
 # helps to arrange the data in ascending sequence of month with dates
-for x in range(1997, 2023):
+for x in range(2009, 2023):
     setArray = []
     for y in range(len(newDataSetArray)):
         if (newDataSetArray[y][0][2] == x):

@@ -104,19 +104,22 @@ with open('dataFreq.csv', 'w+') as file:
 
 print("Done writing the frequency of each Digit in dataFreq.csv file...")
 
-difference_Heading = ["Ball Numbers", "1st Digit - 6th Digit Freq", "2nd Digit - 5th Digit",
-                      "3rd Digit - 4th Digit"]
+
+# difference_Heading = ["Ball Numbers", "1st Digit - 6th Digit Freq", "2nd Digit - 5th Digit",
+#                       "3rd Digit - 4th Digit"]
 
 
-difference_Array_1 = []
-difference_Array_2 = []
-difference_Array_3 = []
+# difference_Array_1 = []
+# difference_Array_2 = []
+# difference_Array_3 = []
+
 # data index = [0 , 1 , 2(1st) , 3(2nd) , 4(3rd) , 5(4th), 6(5th) , 7(6th), 8, 9]
 # data = [[list_array date],str_date,1st, 2nd, 3rd, 4th, 5th, 6th,jolly, superstar]
-for i in range(len(data)):
-    difference_Array_1.append(abs(data[i][7] - data[i][2]))
-    difference_Array_2.append(abs(data[i][4] - data[i][5]))
-    difference_Array_3.append(abs(data[i][3] - data[i][6]))
+
+# for i in range(len(data)):
+#     difference_Array_1.append(abs(data[i][7] - data[i][2]))
+#     difference_Array_2.append(abs(data[i][4] - data[i][5]))
+#     difference_Array_3.append(abs(data[i][3] - data[i][6]))
 
 ######## date to day values ############
 # date_DATA consist of day , sum of date(dd+mm+yy), difference of date(yy-mm-dd)
@@ -129,11 +132,12 @@ for i in range(len(data)):
 
 ######## date to day values ############
 # date_DATA consist of day , dd , mm, yy , sum of date(dd+mm+yy), difference of date(yy-mm-dd)
-date_DATA = []
 
-for i in range(len(data)):
-    date_DATA.append([data[i][0][0], data[i][0][1], data[i][0][2], data[i][0]
-                     [0]+data[i][0][1]+data[i][0][2], data[i][0][2]-data[i][0][1]-data[i][0][0]])
+# date_DATA = []
+
+# for i in range(len(data)):
+#     date_DATA.append([data[i][0][0], data[i][0][1], data[i][0][2], data[i][0]
+#                      [0]+data[i][0][1]+data[i][0][2], data[i][0][2]-data[i][0][1]-data[i][0][0]])
 
 ###########################LINEAR REGRESSION STARTS####################################################################
 # data_for_Linear_Regression = []
