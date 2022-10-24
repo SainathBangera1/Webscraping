@@ -1,7 +1,10 @@
-from dataScrape import ascendingOrder
-import sys
-import time
 import csv
+import time
+import sys
+from dfunctions import date_Day as day
+from dataScrape import ascendingOrder
+from wheather import wheather_DATA
+
 print("Loading....")
 syms = ['\\', '|', '/', '-']
 bs = '\b'
@@ -92,12 +95,14 @@ _6numbersArray = [freq_1st_Digit, freq_2nd_Digit,
 graph_Heading = ["Ball Numbers", "1st Digit Freq", "2nd Digit Freq",
                  "3rd Digit Freq", "4th Digit Freq", "5th Digit Freq", "6th Digit Freq"]
 
-# with open('dataFreq.csv', 'w+') as file:
-#     myFile = csv.writer(file)
-#     myFile.writerow(graph_Heading)
-#     for i in range(len(freq_1st_Digit)):
-#         myFile.writerow([freq_1st_Digit[i][0], freq_1st_Digit[i][1], freq_2nd_Digit[i][1],
-#                         freq_3rd_Digit[i][1], freq_4th_Digit[i][1], freq_5th_Digit[i][1], freq_6th_Digit[i][1]])
+with open('dataFreq.csv', 'w+') as file:
+    myFile = csv.writer(file)
+    myFile.writerow(graph_Heading)
+    for i in range(len(freq_1st_Digit)):
+        myFile.writerow([freq_1st_Digit[i][0], freq_1st_Digit[i][1], freq_2nd_Digit[i][1],
+                        freq_3rd_Digit[i][1], freq_4th_Digit[i][1], freq_5th_Digit[i][1], freq_6th_Digit[i][1]])
+
+print("Done writing the frequency of each Digit in dataFreq.csv file...")
 
 difference_Heading = ["Ball Numbers", "1st Digit - 6th Digit Freq", "2nd Digit - 5th Digit",
                       "3rd Digit - 4th Digit"]
@@ -113,36 +118,59 @@ for i in range(len(data)):
     difference_Array_2.append(abs(data[i][4] - data[i][5]))
     difference_Array_3.append(abs(data[i][3] - data[i][6]))
 
+######## date to day values ############
+# date_DATA consist of day , sum of date(dd+mm+yy), difference of date(yy-mm-dd)
+# date_DATA = []
 
-data_for_Linear_Regression = []
-data_for_Linear_Regression_TITLE = ['Date', '1st_Digit', '2nd_Digit', '3rd_Digit',
-                                    '4th_Digit', '5th_Digit', '6th_Digit', 'Diff(1st-6th)', 'Diff(3rd-4th)', 'Diff(2nd-5th)']
-# preparing array containing all 6 numbers date wise with their difference (1-6),(3-4),(2-5)
+# for i in range(len(data)):
+#     date_DATA.append([day(data[i][0][0], data[i][0][1], data[i][0][2]), data[i][0]
+#                      [0]+data[i][0][1]+data[i][0][2], data[i][0][2]-data[i][0][1]-data[i][0][0]])
+#######################################################################################
+
+######## date to day values ############
+# date_DATA consist of day , dd , mm, yy , sum of date(dd+mm+yy), difference of date(yy-mm-dd)
+date_DATA = []
+
 for i in range(len(data)):
-    data_for_Linear_Regression.append([data[i][1], data[i][2], data[i][3], data[i][4], data[i][5],
-                                      data[i][6], data[i][7], difference_Array_1[i], difference_Array_2[i], difference_Array_3[i]])
+    date_DATA.append([data[i][0][0], data[i][0][1], data[i][0][2], data[i][0]
+                     [0]+data[i][0][1]+data[i][0][2], data[i][0][2]-data[i][0][1]-data[i][0][0]])
 
-data_for_Linear_Regression_NEW = []
+###########################LINEAR REGRESSION STARTS####################################################################
+# data_for_Linear_Regression = []
+# data_for_Linear_Regression_TITLE = ['Date', 'Day', 'Month', 'Year', '1st_Digit', '2nd_Digit', '3rd_Digit',
+#                                     '4th_Digit', '5th_Digit', '6th_Digit', 'Diff(1st-6th)', 'Diff(3rd-4th)', 'Diff(2nd-5th)', 'T2M', 'T2MDEW', 'T2MWET', 'TS', 'T2M_RANGE', 'T2M_MAX', 'T2M_MIN', 'PRECTOTCORR']
+
+# preparing array containing all 6 numbers date wise with their difference (1-6),(3-4),(2-5)
+
+# for i in range(len(data)):
+#     data_for_Linear_Regression.append([data[i][1], date_DATA[i][0], date_DATA[i][1], date_DATA[i][2], data[i][2], data[i][3], data[i][4], data[i][5],
+#                                       data[i][6], data[i][7], difference_Array_1[i], difference_Array_2[i], difference_Array_3[i], wheather_DATA[i][4], wheather_DATA[i][5], wheather_DATA[i][6], wheather_DATA[i][7], wheather_DATA[i][8], wheather_DATA[i][9], wheather_DATA[i][10], wheather_DATA[i][11]])
+
+# data_for_Linear_Regression_NEW = []
 
 # preparing array containing all 6 numbers date wise
-for i in range(len(data)):
-    data_for_Linear_Regression_NEW.append([data[i][1], data[i][2], data[i][3], data[i][4], data[i][5],
-                                           data[i][6], data[i][7]])
 
-with open('data_Linear_Regression.csv', 'w+') as file:
-    myFile = csv.writer(file)
-    myFile.writerow(data_for_Linear_Regression_TITLE)
-    for i in data_for_Linear_Regression:
-        myFile.writerow(i)
+# for i in range(len(data)):
+#     data_for_Linear_Regression_NEW.append([data[i][1], data[i][2], data[i][3], data[i][4], data[i][5],
+#                                            data[i][6], data[i][7]])
 
-data_for_Linear_Regression_NEW_TITLE = ['Date', '1st_Digit', '2nd_Digit', '3rd_Digit',
-                                        '4th_Digit', '5th_Digit', '6th_Digit']
+# with open('data_Linear_Regression.csv', 'w+') as file:
+#     myFile = csv.writer(file)
+#     myFile.writerow(data_for_Linear_Regression_TITLE)
+#     for i in data_for_Linear_Regression:
+#         myFile.writerow(i)
 
-with open('new_data_Linear_Regression.csv', 'w+') as file:
-    myFile = csv.writer(file)
-    myFile.writerow(data_for_Linear_Regression_NEW_TITLE)
-    for i in data_for_Linear_Regression_NEW:
-        myFile.writerow(i)
+# data_for_Linear_Regression_NEW_TITLE = ['Date', '1st_Digit', '2nd_Digit', '3rd_Digit',
+#                                         '4th_Digit', '5th_Digit', '6th_Digit']
+
+# with open('new_data_Linear_Regression.csv', 'w+') as file:
+#     myFile = csv.writer(file)
+#     myFile.writerow(data_for_Linear_Regression_NEW_TITLE)
+#     for i in data_for_Linear_Regression_NEW:
+#         myFile.writerow(i)
+
+##########################LINEAR REGRESSION ENDS##########################################################################################################################
+
 
 # difference_Array_1 = list(set(difference_Array_1))
 # difference_Array_2 = list(set(difference_Array_2))
@@ -235,6 +263,5 @@ with open('new_data_Linear_Regression.csv', 'w+') as file:
 #     myFile = csv.writer(file)
 #     for i in difference_Array_3_REPEAT:
 #         myFile.writerow(i)
-
 
 print("Program Terminated...")
