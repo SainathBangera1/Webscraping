@@ -44,7 +44,7 @@ outputFile.close()
 print("Index file created...")
 
 
-for i in range(1997, 2023):
+for i in range(2009, 2023):
     top = '''<!DOCTYPE html>\n
 
         <html>\n
