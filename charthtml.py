@@ -29,7 +29,7 @@ main_top = '''<!DOCTYPE html>
     <h1 style="width:100%;text-align:center">Year wise Charts</h1>\n
  '''
 main_content = ''
-for i in range(1997, 2023):
+for i in range(2009, 2023):
     main_content += "<h2><a href="+"./src/" + \
         str(i)+".html>"+str(i)+"</a></h2>\n"
 
