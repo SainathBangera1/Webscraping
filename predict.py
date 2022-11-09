@@ -3,7 +3,7 @@ import time
 import sys
 from dfunctions import date_Day as day
 from dataScrape import ascendingOrder
-from wheather import wheather_DATA
+
 
 print("Loading....")
 syms = ['\\', '|', '/', '-']
@@ -268,4 +268,4 @@ print("Done writing the frequency of each Digit in dataFreq.csv file...")
 #     for i in difference_Array_3_REPEAT:
 #         myFile.writerow(i)
 
-print("Program Terminated...")
+print("Program predict.py Terminated...")
