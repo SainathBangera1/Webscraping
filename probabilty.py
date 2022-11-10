@@ -1,7 +1,7 @@
 from predict import _6numbersArray, freq_1st_Digit, freq_2nd_Digit, freq_3rd_Digit, freq_4th_Digit, freq_5th_Digit, freq_6th_Digit
 from dataScrape import ascendingOrder
 from dfunctions import deltaDays, unionList, dayCount, lisToDate, date_format
-
+import math
 import sys
 import csv
 import time
@@ -258,6 +258,7 @@ print("Done writing dataProb.csv ....")
 time_date_DELTAS = []
 for i in range(1, 91):
     temp_arr = []
+    # for x in ascendingOrder[:int(len(ascendingOrder) - math.floor(len(ascendingOrder)*0.20))]:
     for x in ascendingOrder:
         if i in x[2:8]:
             temp_arr.append(date_format(x[0]))
