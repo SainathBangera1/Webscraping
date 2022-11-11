@@ -293,6 +293,7 @@ with open('deltas.csv', 'w+') as file:
     for i in time_DELTAS:
         myFile.writerow(i)
 
+
 print("Created and modified deltas.csv file Ready to use...")
 
 print("Program terminated..")
