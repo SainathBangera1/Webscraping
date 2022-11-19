@@ -9,6 +9,5 @@
 /src
 /new_data_Linear_Regression.csv
 /data_Linear_Regression.csv
-/Wheater
-/main.py
-/pairs.py
+/pairs_CSV.csv
+/pairs_CSV.ods
