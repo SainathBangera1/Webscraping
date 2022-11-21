@@ -189,3 +189,19 @@ def winNUm(arr):
 # test = [[[2, 3], 10], [[3, 4], 11], [[5, 6], 12], [[5, 6], 9], [[2, 3], 20]]
 
 # print(commanNumfromPairs(test))
+
+#checks whether the number is prime or not
+def prime(num):
+    for i in range(2,num):
+        if num%i == 0:
+            return 0
+            break
+    else:
+        return 1
+
+#Format String Date of dataset.csv
+def date_Formater(str):
+    str = str.replace(" ",'')
+    str = str.split('/')
+    str = str[2]+'/'+str[1]+'/'+str[0]
+    return str
