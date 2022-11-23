@@ -205,3 +205,27 @@ def date_Formater(str):
     str = str.split('/')
     str = str[2]+'/'+str[1]+'/'+str[0]
     return str
+
+#WINUMBERS USING 
+def winPrimeNum(arr1,arr2,arr3,arr4,arr5,arr6):
+    numbers = [random.choice(arr1), random.choice(arr2), random.choice(
+        arr3), random.choice(arr4), random.choice(arr5), random.choice(arr6)]
+
+    dupli = duplicate(numbers)
+
+    while (len(dupli) > 0):
+        for i in dupli:
+            if (i == 0):
+                numbers[i] = random.choice(arr1)
+            elif (i == 1):
+                numbers[i] = random.choice(arr2)
+            elif (i == 2):
+                numbers[i] = random.choice(arr3)
+            elif (i == 3):
+                numbers[i] = random.choice(arr4)
+            elif (i == 4):
+                numbers[i] = random.choice(arr5)
+            elif (i == 5):
+                numbers[i] = random.choice(arr6)
+        dupli = duplicate(numbers)
+    return numbers

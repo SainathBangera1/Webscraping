@@ -86,24 +86,24 @@ while (len(dupli) > 0):
             num[i] = random.choice(ball_6_New)
     dupli = duplicate(num)
 
-print(
-    f"Wining Numbers PRE: {num[0]}, {num[1]}, {num[2]},{num[3]}, {num[4]}, {num[5]}")
+# print(
+#     f"Wining Numbers PRE: {num[0]}, {num[1]}, {num[2]},{num[3]}, {num[4]}, {num[5]}")
 
 ###################################################################################################################
 
-day = int(input("Please Enter the Day: "))
-month = int(input("Please Enter the Month: "))
-year = int(input("Please Enter the Year: "))
+# day = int(input("Please Enter the Day: "))
+# month = int(input("Please Enter the Month: "))
+# year = int(input("Please Enter the Year: "))
 
-input_DATE = [day, month, year]
+# input_DATE = [day, month, year]
 
-fu_date = date_format(input_DATE)
+# fu_date = date_format(input_DATE)
 
-pre_delta_nums = {}
+# pre_delta_nums = {}
 
-for y in range(len(dataNew)):
-    pre_delta_nums[str(dataNew[y][0])] = deltaDays(
-        fu_date, dataNew[y][1]) % dataNew[y][2]
+# for y in range(len(dataNew)):
+#     pre_delta_nums[str(dataNew[y][0])] = deltaDays(
+#         fu_date, dataNew[y][1]) % dataNew[y][2]
 # print(
 #     f"Result of Ball no: {dataNew[y][0]} - {deltaDays(fu_date,dataNew[y][1])%dataNew[y][2]}")
 
@@ -111,7 +111,7 @@ for y in range(len(dataNew)):
 # min_Delta = min(predict_deltas)
 
 # sorts the value ascending order
-sort_value = sorted(pre_delta_nums.items(), key=lambda x: x[1])
+#sort_value = sorted(pre_delta_nums.items(), key=lambda x: x[1])
 
 # 10th Nov 2022
 # original_val = [10, 16, 18, 34, 39, 45]
@@ -237,9 +237,9 @@ while (len(dupli) > 0):
 for i in range(0, 6):
     wining_Nums.append(numbers[i])
 
-print("\n")
-print(
-    f"WINING NUMBERS based on Values : {wining_Nums[0]},{wining_Nums[1]},{wining_Nums[2]},{wining_Nums[3]},{wining_Nums[4]},{wining_Nums[5]}")
+# print("\n")
+# print(
+#     f"WINING NUMBERS based on Values : {wining_Nums[0]},{wining_Nums[1]},{wining_Nums[2]},{wining_Nums[3]},{wining_Nums[4]},{wining_Nums[5]}")
 
 # Wining number 12th Nov 2022 : 4,26,47,62,69,1
 
@@ -248,7 +248,7 @@ data = np.array(data[["Pairs", "Frequency"]])
 
 pairsNUMBERS = commanNumfromPairs(data)
 
-print(f"Pair Numbers Length {len(pairsNUMBERS)}")
+# print(f"Pair Numbers Length {len(pairsNUMBERS)}")
 
 pairsNUMBERS = winNUm(pairsNUMBERS)
 
@@ -256,6 +256,6 @@ pairsNUMBERS = winNUm(pairsNUMBERS)
 for i in range(0, 6):
     pairsNUMBERS.append(numbers[i])
 
-print("\n")
-print(
-    f"WINING NUMBERS based of PairNums : {pairsNUMBERS[0]},{pairsNUMBERS[1]},{pairsNUMBERS[2]},{pairsNUMBERS[3]},{pairsNUMBERS[4]},{pairsNUMBERS[5]}")
+# print("\n")
+# print(
+#     f"WINING NUMBERS based of PairNums : {pairsNUMBERS[0]},{pairsNUMBERS[1]},{pairsNUMBERS[2]},{pairsNUMBERS[3]},{pairsNUMBERS[4]},{pairsNUMBERS[5]}")
