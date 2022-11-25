@@ -89,3 +89,5 @@ sixth_Digit_LEFT_Primes=list(set(prime_num) - set(sixth_Digit_Primes))
 # print(f"{sixth_Digit_NON_Primes} length ===> {len(sixth_Digit_NON_Primes)}")
 
 print(f"Predicted Numbers: {winPrimeNum(first_Digit_NON_Primes,prime_num,prime_num,ball_4,ball_5,sixth_Digit_NON_Primes)}")
+print("**********************************")
+print(f"Predicted Numbers: {winPrimeNum(ball_1,ball_2,ball_3,ball_4,ball_5,ball_6)}")
