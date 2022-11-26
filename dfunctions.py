@@ -229,3 +229,19 @@ def winPrimeNum(arr1,arr2,arr3,arr4,arr5,arr6):
                 numbers[i] = random.choice(arr6)
         dupli = duplicate(numbers)
     return numbers
+
+#Factorize the number if its not prime
+def factors(num):
+    strING=''
+    if(prime(num)==0):
+        for i in range(2,num):
+            if num%i == 0:
+                strING+=str(i)+' x '
+        strING = strING[:-1]
+        strING = strING[:-1]
+        strING = strING[:-1]
+        return strING
+    else:
+        return "Prime"
+
+# print(factors(50))

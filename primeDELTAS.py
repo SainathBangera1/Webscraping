@@ -5,7 +5,7 @@ import pandas as pd
 import csv
 import sys
 import matplotlib
-from dfunctions import date_format,deltaDays
+from dfunctions import date_format,deltaDays,prime
 
 
 
@@ -53,3 +53,21 @@ with open("prime_DELTA.csv","w+") as file:
         myFile.writerow(i)
 
 print("Done Writing prime_DELTA.csv file...... ")
+
+data_New = pd.read_csv('prime_DELTA.csv')
+data_Set = np.array(data_New)
+data_Set = data_Set[0][3:]
+
+data_Set_arr = []
+
+for i in data_Set:
+    if prime(i)==0:
+        data_Set_arr.append([i,0])
+    else:
+        data_Set_arr.append([i,1])
+
+with open('1st_Digit_delta.csv','w+') as file:
+    myFile = csv.writer(file)
+    myFile.writerow(['delta','Prime'])
+    for i in data_Set_arr:
+        myFile.writerow(i)
