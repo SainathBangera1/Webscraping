@@ -245,3 +245,43 @@ def factors(num):
         return "Prime"
 
 # print(factors(50))
+
+#Finiding Difference between Two numbers
+def sub(a,b):
+    return a-b
+
+def trials(arr,ball_1,ball_2,ball_3,ball_4,ball_5,ball_6):
+    #TRIAL AND ERROR
+    count=0
+    get=1
+    original_Number = arr
+
+    while (get!=0):
+        pred_Arr = winPrimeNum(ball_1,ball_2,ball_3,ball_4,ball_5,ball_6)
+        pred_Arr.sort()
+        if(str(pred_Arr) == str(original_Number)):
+            return pred_Arr
+            get=0
+        else:
+            count+=1
+            return count
+
+#converts Array into strings
+def arr_str(arr):
+    res = str(arr[0])+','+str(arr[1])+','+str(arr[2])+','+str(arr[3])+','+str(arr[4])+','+str(arr[5])
+    return res
+#input = [3,4,5,6]
+#output = '3,4,5,6'
+
+def factorizor(num):
+    if(prime(num)==0):
+        tmp_arr=[]
+        for i in range(2,num):
+            if num%i==0 and prime(i)==1:
+                tmp_arr.append(i)
+        return tmp_arr[len(tmp_arr)-1]
+
+# num = int(input("Enter a number to check Prime or NOT: "))
+# print(factorizor(num))
+#input = 22575
+#output = 43

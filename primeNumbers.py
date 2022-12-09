@@ -2,7 +2,7 @@ import random
 import pandas as pd
 import numpy as np
 import csv
-from dfunctions import duplicate, unionList, date_format, deltaDays, commanNumfromPairs, winPrimeNum,prime,date_Formater
+from dfunctions import trials,prime,date_Formater,winPrimeNum,arr_str
 import ast
 from main import ball_1,ball_2,ball_3,ball_4,ball_5,ball_6
 
@@ -87,7 +87,37 @@ sixth_Digit_LEFT_Primes=list(set(prime_num) - set(sixth_Digit_Primes))
 # print(f"{sixth_Digit_Primes} length ===> {len(sixth_Digit_Primes)}")
 # print(f"{sixth_Digit_LEFT_Primes} length ===> {len(sixth_Digit_LEFT_Primes)}")
 # print(f"{sixth_Digit_NON_Primes} length ===> {len(sixth_Digit_NON_Primes)}")
-
-print(f"Predicted Numbers: {winPrimeNum(first_Digit_NON_Primes,prime_num,prime_num,ball_4,ball_5,sixth_Digit_NON_Primes)}")
+pred_Arr = winPrimeNum(first_Digit_NON_Primes,prime_num,prime_num,ball_4,ball_5,sixth_Digit_NON_Primes)
+pred_Arr.sort()
+print(f"Predicted Numbers: {pred_Arr}")
 print("**********************************")
-print(f"Predicted Numbers: {winPrimeNum(ball_1,ball_2,ball_3,ball_4,ball_5,ball_6)}")
+pred_Arr = winPrimeNum(ball_1,ball_2,ball_3,ball_4,ball_5,ball_6)
+pred_Arr.sort()
+print(f"Predicted Numbers: {pred_Arr}")
+
+
+# arr=[]
+# for i in range(0,6):
+#      arr.append(int(input(f"Enter Ball no {i+1} : ")))
+
+#TRIAL AND ERROR
+# count=0
+# get=1
+# original_Number = [3,8,42,48,61,72]
+# check_Array=[]
+# while (get!=0):
+#         chk=False
+#         pred_Arr =winPrimeNum(ball_1,ball_2,ball_3,ball_4,ball_5,ball_6)
+#         # winPrimeNum(ball_1,ball_2,ball_3,ball_4,ball_5,ball_6)
+#         # print(pred_Arr)
+#         pred_Arr.sort()
+#         chk_String = arr_str(pred_Arr)
+#         if chk_String not in check_Array:
+#             if(chk_String == arr_str(original_Number)):
+#                 print(pred_Arr)
+#                 get=0
+#             else:
+#                 count+=1
+#                 print(count)
+#                 check_Array.append(arr_str(pred_Arr))
+#                 print(chk_String)

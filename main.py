@@ -24,47 +24,46 @@ ball_5 = []
 ball_6 = []
 
 for i in ball:
-    if (i[1] > 1):
+    if (i[1] > 9):
         ball_1.append(i[0])
 for i in ball:
-    if (i[2] > 10):
+    if (i[2] > 9):
         ball_2.append(i[0])
 for i in ball:
-    if (i[3] > 5):
+    if (i[3] > 9):
         ball_3.append(i[0])
 for i in ball:
-    if (i[4] > 5):
+    if (i[4] > 9):
         ball_4.append(i[0])
 for i in ball:
-    if (i[5] > 10):
+    if (i[5] > 9):
         ball_5.append(i[0])
 for i in ball:
-    if (i[6] > 1):
+    if (i[6] > 9):
         ball_6.append(i[0])
 
-ball_1_New = list(set(ball_1) & set(ball_6))
-ball_1Exc6 = list(set(ball_1) - set(ball_6))
-ball_6Exc1 = list(set(ball_6) - set(ball_1))
-ball_6_New = unionList(ball_1Exc6, ball_6Exc1)
-#print(f'Ball 1 and 6 : {len(ball_1_New)} ,  {len(ball_6_New)}')
+# print(len(ball_1))
+# print(ball_1)
+ball_6_NEW = list(set(ball_6) - set(ball_1))
+# print(len(ball_6_NEW))
+# print(ball_6_NEW)
 
-ball_2_New = list(set(ball_2) & set(ball_5))
-ball_2Exc5 = list(set(ball_2) - set(ball_5))
-ball_5Exc2 = list(set(ball_5) - set(ball_2))
-ball_5_New = unionList(ball_2Exc5, ball_5Exc2)
+ball_5_NEW = list(set(ball_5) - set(ball_2))
+# print(len(ball_2))
+# print(ball_2)
 
-# print(f'Ball 2 and 5 : {len(ball_2_New)} ,  {len(ball_5_New)}')
+# print(len(ball_5_NEW))
+# print(ball_5_NEW)
 
+# print(len(ball_3))
+# print(ball_3)
 
-ball_3_New = list(set(ball_3) & set(ball_4))
-ball_3Exc4 = list(set(ball_3) - set(ball_4))
-ball_4Exc3 = list(set(ball_4) - set(ball_3))
-ball_4_New = unionList(ball_3Exc4, ball_4Exc3)
+ball_4_NEW = list(set(ball_4) - set(ball_3))
+# print(len(ball_4_NEW))
+# print(ball_4_NEW)
 
-# print(f'Ball 3 and 4 : {len(ball_3_New)} ,  {len(ball_4_New)}')
-
-num = [random.choice(ball_1_New), random.choice(ball_2_New), random.choice(
-    ball_4_New), random.choice(ball_3_New), random.choice(ball_5_New), random.choice(ball_6_New)]
+num = [random.choice(ball_1), random.choice(ball_2), random.choice(
+    ball_3), random.choice(ball_4), random.choice(ball_5_NEW), random.choice(ball_6_NEW)]
 
 
 dupli = duplicate(num)
@@ -73,18 +72,71 @@ dupli = duplicate(num)
 while (len(dupli) > 0):
     for i in dupli:
         if (i == 0):
-            num[i] = random.choice(ball_1_New)
+            num[i] = random.choice(ball_1)
         elif (i == 1):
-            num[i] = random.choice(ball_2_New)
+            num[i] = random.choice(ball_2)
         elif (i == 2):
-            num[i] = random.choice(ball_3_New)
+            num[i] = random.choice(ball_3)
         elif (i == 3):
-            num[i] = random.choice(ball_4_New)
+            num[i] = random.choice(ball_4)
         elif (i == 4):
-            num[i] = random.choice(ball_5_New)
+            num[i] = random.choice(ball_5_NEW)
         elif (i == 5):
-            num[i] = random.choice(ball_6_New)
+            num[i] = random.choice(ball_6_NEW)
     dupli = duplicate(num)
+
+num.sort()
+print(
+    f"STOCK NUMBERS: {num[0]}, {num[1]}, {num[2]},{num[3]}, {num[4]}, {num[5]}")
+
+
+
+
+
+# #############################################################################################################
+# ball_1_New = list(set(ball_1) & set(ball_6))
+# ball_1Exc6 = list(set(ball_1) - set(ball_6))
+# ball_6Exc1 = list(set(ball_6) - set(ball_1))
+# ball_6_New = unionList(ball_1Exc6, ball_6Exc1)
+#print(f'Ball 1 and 6 : {len(ball_1_New)} ,  {len(ball_6_New)}')
+
+# ball_2_New = list(set(ball_2) & set(ball_5))
+# ball_2Exc5 = list(set(ball_2) - set(ball_5))
+# ball_5Exc2 = list(set(ball_5) - set(ball_2))
+# ball_5_New = unionList(ball_2Exc5, ball_5Exc2)
+
+# print(f'Ball 2 and 5 : {len(ball_2_New)} ,  {len(ball_5_New)}')
+
+
+# ball_3_New = list(set(ball_3) & set(ball_4))
+# ball_3Exc4 = list(set(ball_3) - set(ball_4))
+# ball_4Exc3 = list(set(ball_4) - set(ball_3))
+# ball_4_New = unionList(ball_3Exc4, ball_4Exc3)
+
+# print(f'Ball 3 and 4 : {len(ball_3_New)} ,  {len(ball_4_New)}')
+
+# num = [random.choice(ball_1_New), random.choice(ball_2_New), random.choice(
+#     ball_4_New), random.choice(ball_3_New), random.choice(ball_5_New), random.choice(ball_6_New)]
+
+
+# dupli = duplicate(num)
+
+
+# while (len(dupli) > 0):
+#     for i in dupli:
+#         if (i == 0):
+#             num[i] = random.choice(ball_1_New)
+#         elif (i == 1):
+#             num[i] = random.choice(ball_2_New)
+#         elif (i == 2):
+#             num[i] = random.choice(ball_3_New)
+#         elif (i == 3):
+#             num[i] = random.choice(ball_4_New)
+#         elif (i == 4):
+#             num[i] = random.choice(ball_5_New)
+#         elif (i == 5):
+#             num[i] = random.choice(ball_6_New)
+#     dupli = duplicate(num)
 
 # print(
 #     f"Wining Numbers PRE: {num[0]}, {num[1]}, {num[2]},{num[3]}, {num[4]}, {num[5]}")
@@ -127,7 +179,7 @@ while (len(dupli) > 0):
 # mean_values = []
 
 
-delta_TITLE = ["Ball Number", "Deltas"]
+# delta_TITLE = ["Ball Number", "Deltas"]
 
 # with open('5th_Nov_2022.csv', 'w+') as file:
 #     myFile = csv.writer(file)
@@ -194,48 +246,48 @@ delta_TITLE = ["Ball Number", "Deltas"]
 # 6th Digit : sixth_Value =[50,51,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90]
 
 
-first_Val = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-             21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 40, 41]
-second_Val = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
-              25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 54]
-third_Value = [11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
-               38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67]
-fourth_Value = [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
-                50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79]
-fifth_Value = [32, 34, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61,
-               62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89]
-sixth_Value = [50, 51, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
-               70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90]
+# first_Val = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+#              21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 40, 41]
+# second_Val = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+#               25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 54]
+# third_Value = [11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+#                38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67]
+# fourth_Value = [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+#                 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79]
+# fifth_Value = [32, 34, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61,
+#                62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89]
+# sixth_Value = [50, 51, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
+#                70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90]
 
 
-wining_Nums = []
+# wining_Nums = []
 
-numbers = [random.choice(first_Val), random.choice(second_Val), random.choice(
-    third_Value), random.choice(fourth_Value), random.choice(fifth_Value), random.choice(sixth_Value)]
-
-
-dupli = duplicate(numbers)
+# numbers = [random.choice(first_Val), random.choice(second_Val), random.choice(
+#     third_Value), random.choice(fourth_Value), random.choice(fifth_Value), random.choice(sixth_Value)]
 
 
-while (len(dupli) > 0):
-    for i in dupli:
-        if (i == 0):
-            numbers[i] = random.choice(first_Val)
-        elif (i == 1):
-            numbers[i] = random.choice(second_Val)
-        elif (i == 2):
-            numbers[i] = random.choice(third_Value)
-        elif (i == 3):
-            numbers[i] = random.choice(fourth_Value)
-        elif (i == 4):
-            numbers[i] = random.choice(fifth_Value)
-        elif (i == 5):
-            numbers[i] = random.choice(sixth_Value)
-    dupli = duplicate(numbers)
+# dupli = duplicate(numbers)
 
 
-for i in range(0, 6):
-    wining_Nums.append(numbers[i])
+# while (len(dupli) > 0):
+#     for i in dupli:
+#         if (i == 0):
+#             numbers[i] = random.choice(first_Val)
+#         elif (i == 1):
+#             numbers[i] = random.choice(second_Val)
+#         elif (i == 2):
+#             numbers[i] = random.choice(third_Value)
+#         elif (i == 3):
+#             numbers[i] = random.choice(fourth_Value)
+#         elif (i == 4):
+#             numbers[i] = random.choice(fifth_Value)
+#         elif (i == 5):
+#             numbers[i] = random.choice(sixth_Value)
+#     dupli = duplicate(numbers)
+
+
+# for i in range(0, 6):
+#     wining_Nums.append(numbers[i])
 
 # print("\n")
 # print(
@@ -243,18 +295,18 @@ for i in range(0, 6):
 
 # Wining number 12th Nov 2022 : 4,26,47,62,69,1
 
-data = pd.read_csv('pairs_CSV.csv')
-data = np.array(data[["Pairs", "Frequency"]])
+# data = pd.read_csv('pairs_CSV.csv')
+# data = np.array(data[["Pairs", "Frequency"]])
 
-pairsNUMBERS = commanNumfromPairs(data)
+# pairsNUMBERS = commanNumfromPairs(data)
 
 # print(f"Pair Numbers Length {len(pairsNUMBERS)}")
 
-pairsNUMBERS = winNUm(pairsNUMBERS)
+# pairsNUMBERS = winNUm(pairsNUMBERS)
 
 
-for i in range(0, 6):
-    pairsNUMBERS.append(numbers[i])
+# for i in range(0, 6):
+#     pairsNUMBERS.append(numbers[i])
 
 # print("\n")
 # print(

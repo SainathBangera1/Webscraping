@@ -5,7 +5,7 @@ import pandas as pd
 import csv
 import sys
 import matplotlib
-from dfunctions import date_format,deltaDays,prime
+from dfunctions import date_format,deltaDays,prime,sub,trials,factorizor
 
 
 
@@ -55,19 +55,46 @@ with open("prime_DELTA.csv","w+") as file:
 print("Done Writing prime_DELTA.csv file...... ")
 
 data_New = pd.read_csv('prime_DELTA.csv')
+data_New = data_New.replace('NaN', np.nan)
+data_New = data_New.fillna(0)
 data_Set = np.array(data_New)
 data_Set = data_Set[0][3:]
 
 data_Set_arr = []
 
+prime_ARRAY = []
+
 for i in data_Set:
-    if prime(i)==0:
-        data_Set_arr.append([i,0])
+    if prime(int(i))==0:
+        data_Set_arr.append([i,0,factorizor(int(i))])
     else:
-        data_Set_arr.append([i,1])
+        if(int(i)!=0):
+            prime_ARRAY.append(int(i))
+            data_Set_arr.append([i,1])
 
 with open('1st_Digit_delta.csv','w+') as file:
     myFile = csv.writer(file)
-    myFile.writerow(['delta','Prime'])
+    myFile.writerow(['delta','Prime','Last factor'])
     for i in data_Set_arr:
         myFile.writerow(i)
+
+print("Done Writing 1st_Digit_delta.csv .....")
+
+
+
+
+# print(prime_ARRAY)
+
+# prime_Difference=[]
+
+# for i in range(len(prime_ARRAY)):
+#     if(i+1 < len(prime_ARRAY)):
+#         prime_Difference.append(sub(prime_ARRAY[i+1],prime_ARRAY[i]))
+
+# prime_inBetween=[]
+# for i in range(4657,4910):
+#     if(prime(i)==1):
+#         prime_inBetween.append(i)
+
+# print(len(prime_inBetween)-2)
+
