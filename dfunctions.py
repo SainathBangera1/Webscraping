@@ -8,9 +8,15 @@ weekdays = ["Sunday", "Monday", "Tuesday",
 
 
 def date_Day(dd, mm, yy):
+    dd=int(dd)
+    mm = int(mm)
+    yy=int(yy)
     tday = datetime.date(yy, mm, dd)
     return weekdays[tday.isoweekday()]
 
+# da='2022/12/10'.split('/')
+# print(date_Day(da[2],da[1],da[0]))
+#output = Saturday
 
 def date_format(arr):
     res = str(arr[2])+'/'+str(arr[1])+'/'+str(arr[0])
@@ -285,3 +291,20 @@ def factorizor(num):
 # print(factorizor(num))
 #input = 22575
 #output = 43
+
+def arr_string(arr):
+    res = str(arr[0])+'-'+str(arr[1])+'-'+str(arr[2])+'-'+str(arr[3])+'-'+str(arr[4])+'-'+str(arr[5])
+    return res
+
+# odd=[]
+# even=[]
+# for i in range(1,91):
+#     if(i%2==0):
+#         even.append(i)
+#     else:
+#         odd.append(i)
+
+# print(odd)
+# print(f"Length of Odd Number: {len(odd)}")
+# print(even)
+# print(f"Length of Even Number: {len(even)}")

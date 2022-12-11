@@ -2,7 +2,7 @@ import random
 import pandas as pd
 import numpy as np
 import csv
-from dfunctions import duplicate, unionList, date_format, deltaDays, commanNumfromPairs, winNUm
+from dfunctions import duplicate, unionList, date_format, deltaDays, commanNumfromPairs, winNUm, arr_string
 from pdClassifier import dataNew
 import ast
 
@@ -86,6 +86,13 @@ while (len(dupli) > 0):
     dupli = duplicate(num)
 
 num.sort()
+array_toString = arr_string(num)
+
+with open("checkNum.csv","a+") as file:
+    myFile = csv.writer(file)
+    myFile.writerow([array_toString])
+    print("New Number inserted in checkNum.csv ")
+
 print(
     f"STOCK NUMBERS: {num[0]}, {num[1]}, {num[2]},{num[3]}, {num[4]}, {num[5]}")
 
