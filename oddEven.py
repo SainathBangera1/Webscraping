@@ -23,7 +23,7 @@ for i in data_Array:
         else:
             odd_Count+=1
     for z in range(1,len(i)):
-        if(prime(i[z])==0):
+        if(prime(i[z])==1):
             primeCount+=1
         else:
             nonPrimeCount+=1
