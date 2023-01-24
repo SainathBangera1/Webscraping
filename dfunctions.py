@@ -3,6 +3,7 @@ from datetime import datetime as dt
 import ast
 import random
 
+
 weekdays = ["Sunday", "Monday", "Tuesday",
             "Wednesday", "Thursday", "Friday", "Saturday"]
 
@@ -326,4 +327,17 @@ def spitPrime(num):
             prime.append(i)
     res.append(prime)
     res.append(nonPrime)
+    return res
+
+#extracting elements detail from periodic table of wikipedia
+def periodic(data):
+    da = str(data)
+    da=da.replace('</span>','')
+    da=da[::-1]
+    res=''
+    for i in range(len(da)):
+        if(da[i]=='>'):
+            break
+        res+=da[i]
+    res=res[::-1]
     return res
