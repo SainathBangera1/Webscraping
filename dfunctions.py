@@ -2,6 +2,7 @@ import datetime
 from datetime import datetime as dt
 import ast
 import random
+from itertools import accumulate
 
 
 weekdays = ["Sunday", "Monday", "Tuesday",
@@ -341,3 +342,23 @@ def periodic(data):
         res+=da[i]
     res=res[::-1]
     return res
+
+#sorting the letters within the strings
+def sortString(str):
+    return tuple(accumulate(sorted(str)))[-1]
+
+# Python program to remove duplicate character
+# from character array and print in sorted
+# order
+def removeDuplicate(str):
+    s = set()
+     
+    # Create a set using String characters
+    for i in str:
+        s.add(i)
+ 
+    # Print content of the set
+    st = ""
+    for i in s:
+        st = st+i
+    return st
