@@ -362,3 +362,5 @@ def removeDuplicate(str):
     for i in s:
         st = st+i
     return st
+
+
