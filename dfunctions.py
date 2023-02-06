@@ -207,6 +207,7 @@ def prime(num):
     else:
         return 1
 
+
 #Format String Date of dataset.csv
 def date_Formater(str):
     str = str.replace(" ",'')
@@ -363,4 +364,36 @@ def removeDuplicate(str):
         st = st+i
     return st
 
+def dictFreq(uni,arr):
+    count=0
+    tmp=[]
+    for i in uni:
+        for j in arr:
+            if(i==j):
+                count+=1
+        tmp.append({i:count})
+    return tmp
+    
+def odds(arr):
+    countOdd=0
+    countEven=0
+    for i in arr:
+        if (i%2==0):
+            countEven+=1
+        else:
+            countOdd+=1
+    resEven = round(((len(arr)-countEven)/len(arr))*100)
+    resOdd = round(((len(arr)-countOdd)/len(arr))*100)
+    return [resEven,resOdd]
 
+def primes(arr):
+    primes=0
+    nonPrimes=0
+    for i in arr:
+        if (prime(i)==0):
+            nonPrimes+=1
+        else:
+            primes+=1
+    resPrime = round(((len(arr)-primes)/len(arr))*100)
+    resNonPrime = round(((len(arr)-nonPrimes)/len(arr))*100)
+    return [resPrime,resNonPrime]
