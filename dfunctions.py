@@ -397,3 +397,31 @@ def primes(arr):
     resPrime = round(((len(arr)-primes)/len(arr))*100)
     resNonPrime = round(((len(arr)-nonPrimes)/len(arr))*100)
     return [resPrime,resNonPrime]
+
+def sepratePrimes(store,data):
+    for i in data:
+        if(prime(i)==1):
+            store.append(i)
+    return store
+
+def seprateNonPrimes(store,data):
+    for i in data:
+        if(prime(i)==0):
+            store.append(i)
+    return store
+
+
+#inputArr = [1,2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20,21]
+#comArr = [4,11,16,23,24,37,41,43,47,79]
+#output = 3
+def matchNum(inputArr,compArr):
+    count=0
+    for i in inputArr:
+        for j in compArr:
+            if(i==j):
+                count+=1
+    return count
+# inputArr = [1,2,3,4,5,7,8,9,10,11,12,13,14,15,16,17,19,20,21]
+# comArr = [4,11,16,23,24,37,41,43,47,79]
+# print(matchNum(inputArr,comArr))
+

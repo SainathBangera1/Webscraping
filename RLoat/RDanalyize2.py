@@ -17,11 +17,31 @@ for i in data_JSON:
     tmp=[]
     for d in RDate(i["Date"]):
         tmp.append(d)
-    for l in i["sSet"]:
+    for l in i["fSet"]:
         tmp.append(int(l))
-    data.append(tmp)
+    data.append(str(tmp))
 
-data= data[::-1]
+data = set(data)
+tmp1=[]
+for i in data:
+    arr = eval(i)
+    tmp1.append(arr)
+
+data=tmp1
+
+newData = []
+
+for i in range(2020,2024):
+    for j in range(1,13):
+        for k in range(1,32):
+            for l in data:
+                if(l[2]==i and l[1]==j and l[0]==k):
+                    newData.append(l)
+                else:
+                    pass
+
+
+data = newData
 
 data_Title = ['Day','Month','Year','Time']
 
