@@ -42,63 +42,41 @@ for i in range(2020,2024):
                 else:
                     pass
 
+missing_Arr=[]
+for i in range(len(newData)):
+    tmp_arr=[]
+    if(i+1<len(newData)):
+        if(newData[i][2]==newData[i+1][2]):
+            if(newData[i][1]==newData[i+1][1]):
+                if((newData[i+1][0]-newData[i][0])>1):
+                    rg =newData[i+1][0]-newData[i][0]
+                    for j in range(1,rg):
+                        day = newData[i][0]+j
+                        month=newData[i][1]
+                        year=newData[i][2]
+                        tmp_arr = [day,month,year,0,0,0,0,0,0,0,0,0,0,0]
+                        missing_Arr.append([i,tmp_arr])
+
+missing_Arr = missing_Arr[::-1]
+for j in missing_Arr:
+    newData.insert(j[0],j[1])
+    # print(newData[j[0]])
+
 data = newData
+data_Title = ['Day','Month','Year','Time']
 
-# for i in range(len(data)):
-#     tmp=[]
-#     if(i+1<len(data)):
-#         if(data[i][2]==data[i+1][2]):
-#             if(data[i][1]==data[i+1][1]):
-#                 if((data[i+1][0]-data[i][0])>1):
-#                     rg =data[i+1][0]-data[i][0]
-#                     for j in range(1,rg):
-#                         str1 = str(data[i][0]+j)+'-'+str(data[i][1])+'-'+str(data[i][2])
-#                         tmp.append(str1)
-#                     print(f"Missing dates : {tmp}")
-#                     tmp=[]
+for i in range(1,11):
+    strDigit="Digit"+str(i)
+    data_Title.append(strDigit)
 
-# data_Title = ['Day','Month','Year','Time']
+# Even when the python file is in subfolder RLoat yet the file can be created in main folder by just giving its <filename>.csv
+with open('R_FirstSET.csv','w') as file:
+    myFile = csv.writer(file)
+    myFile.writerow(data_Title)
+    for i in data:
+        myFile.writerow(i)
 
-# for i in range(1,11):
-#     strDigit="Digit"+str(i)
-#     data_Title.append(strDigit)
-
-# # Even when the python file is in subfolder RLoat yet the file can be created in main folder by just giving its <filename>.csv
-# with open('R_FirstSET.csv','w') as file:
-#     myFile = csv.writer(file)
-#     myFile.writerow(data_Title)
-#     for i in data:
-#         myFile.writerow(i)
-
-# print("Done writing R_FirstSET.csv file ...")
-
-# ##########################################################################
-# data2=[]
-# # Only 2nd Set Numbers
-# for i in data_JSON:
-#     tmp=[]
-#     for d in RDate(i["Date"]):
-#         tmp.append(d)
-#     for l in i["sSet"]:
-#         tmp.append(int(l))
-#     data2.append(tmp)
-
-# data2= data2[::-1]
-
-# data_Title2 = ['Day','Month','Year','Time']
-
-# for i in range(1,11):
-#     strDigit="Digit"+str(i)
-#     data_Title2.append(strDigit)
-
-# # Even when the python file is in subfolder RLoat yet the file can be created in main folder by just giving its <filename>.csv
-# with open('R_SecondSET.csv','w') as file:
-#     myFile = csv.writer(file)
-#     myFile.writerow(data_Title2)
-#     for i in data2:
-#         myFile.writerow(i)
-
-# print("Done writing R_SecondSET.csv file ...")
+print("Done writing R_FirstSET.csv file ...")
 
 # ########################################### 3 PM #####################################
 # data3PM=[]
@@ -180,18 +158,18 @@ data = newData
 # print("Done writing 7PM_FirstSET.csv file ...")
 
 # ########################################### 8 PM #####################################
-# data8PM=[]
+data8PM=[]
 
-# for i in data:
-#     if i[3]==8:
-#         data8PM.append(i)
+for i in data:
+    if i[3]==8 or i[3]==0:
+        data8PM.append(i)
 
-# with open('8PM_FirstSET.csv','w') as file:
-#     myFile = csv.writer(file)
-#     myFile.writerow(data_Title)
-#     for i in data8PM:
-#         myFile.writerow(i)
+with open('8PM_FirstSET.csv','w') as file:
+    myFile = csv.writer(file)
+    myFile.writerow(data_Title)
+    for i in data8PM:
+        myFile.writerow(i)
 
-# print("Done writing 8PM_FirstSET.csv file ...")
+print("Done writing 8PM_FirstSET.csv file ...")
 
 # ######################################################################################
