@@ -425,3 +425,13 @@ def matchNum(inputArr,compArr):
 # comArr = [4,11,16,23,24,37,41,43,47,79]
 # print(matchNum(inputArr,comArr))
 
+def spitZero(arr):
+    tmp=[]
+    for i in arr:
+        if(i!=0):
+            tmp.append(i)
+    return tmp
+
+
+
+

@@ -10,7 +10,7 @@ for i in range(20):
     num = int(input(f"Enter Number {i+1} : "))
     number.append(num)
 
-data = pd.read_csv('generated.csv')
+data = pd.read_csv('2generated.csv')
 data = np.array(data[["Digit_1","Digit_2","Digit_3","Digit_4","Digit_5","Digit_6","Digit_7","Digit_8","Digit_9","Digit_10"]])
 srno=0
 for i in data:
