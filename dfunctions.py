@@ -3,6 +3,7 @@ from datetime import datetime as dt
 import ast
 import random
 from itertools import accumulate
+import numpy as np
 
 
 weekdays = ["Sunday", "Monday", "Tuesday",
@@ -371,9 +372,15 @@ def dictFreq(uni,arr):
         for j in arr:
             if(i==j):
                 count+=1
-        tmp.append({i:count})
+        tmp.append([i,count])
+        count=0
     return tmp
     
+#input = [2,3,5]
+#input 2 = [2,3,3,6,7,8,9,2,2,2,7,7,8,5,5]
+# print(dictFreq([2,3,5],[2,3,3,6,7,8,9,2,2,2,7,7,8,5,5]))
+#output = [{2: 4}, {3: 2}, {5: 2}]
+
 def odds(arr):
     countOdd=0
     countEven=0
@@ -394,9 +401,13 @@ def primes(arr):
             nonPrimes+=1
         else:
             primes+=1
-    resPrime = round(((len(arr)-primes)/len(arr))*100)
-    resNonPrime = round(((len(arr)-nonPrimes)/len(arr))*100)
+    resPrime = round(((primes)/len(arr))*100)
+    resNonPrime = round(((nonPrimes)/len(arr))*100)
     return [resPrime,resNonPrime]
+
+# result = primes([5,24,29,30,33,37,40,46,47,49,53,55,59,61,62,63,67,71,76,78])
+# print(f"Primes : {result[0]} %")
+# print(f"Non Primes : {result[1]} %")
 
 def sepratePrimes(store,data):
     for i in data:
@@ -432,6 +443,113 @@ def spitZero(arr):
             tmp.append(i)
     return tmp
 
+def generateNum(ar1,ar2):
+    num = [random.choice(ar1),random.choice(ar1),random.choice(ar2),random.choice(ar2),random.choice(ar2)]
+    dupli = duplicate(num)
+    while (len(dupli) > 0):
+        for i in dupli:
+            if (i == 0):
+                num[i] = random.choice(ar1)
+            elif (i == 1 ):
+                num[i] = random.choice(ar1)
+            elif (i == 2 ):
+                num[i] = random.choice(ar2)
+            elif (i == 3 ):
+                num[i] = random.choice(ar2)
+            elif (i == 4 ):
+                num[i] = random.choice(ar2)
+        dupli = duplicate(num)            
+    num.sort()
+        
+    return num
+
+def compareList(arr1,arr2):
+    tmp=list(set(arr1) & set(arr2))
+    if(len(tmp)>0):
+        return 1
+    else:
+        return 0
+
+# a1 = [7,8,9]
+# a2 = [3,5,7,8,9]
+
+# print(compareList(a1,a2))
 
 
+def delElements(ar1,ar2,ogData):
+    for i in ar1:
+        if(len(ar2)==1):
+            ar2 = np.copy(ogData)
+        if(i in ar2):
+            ar2=np.delete(ar2, np.where(ar2 == i))
+    return ar2
 
+def delElements1(ar1,ar2,ogData):
+    for i in ar1:
+        if(len(ar2)==1):
+            ar2 = np.copy(ogData)
+        if(i in ar2):
+            ar2=np.delete(ar2, np.where(ar2 == i))
+    return ar2
+
+
+def generateMODEL1(ar1,ar2):
+    num = [random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar2),random.choice(ar2),random.choice(ar2),random.choice(ar2),random.choice(ar2),random.choice(ar2)]
+    dupli = duplicate(num)
+    while (len(dupli) > 0):
+        for i in dupli:
+            if (i == 0):
+                num[i] = random.choice(ar1)
+            elif (i == 1 ):
+                num[i] = random.choice(ar1)
+            elif (i == 2 ):
+                num[i] = random.choice(ar1)
+            elif (i == 3 ):
+                num[i] = random.choice(ar1)
+            elif (i == 4 ):
+                num[i] = random.choice(ar2)
+            elif (i == 5 ):
+                num[i] = random.choice(ar2)
+            elif (i == 6 ):
+                num[i] = random.choice(ar2)
+            elif (i == 7 ):
+                num[i] = random.choice(ar2)
+            elif (i == 8 ):
+                num[i] = random.choice(ar2)
+            elif (i == 9 ):
+                num[i] = random.choice(ar2)
+        dupli = duplicate(num)            
+    num.sort()
+        
+    return num
+
+
+def generateMODEL2(ar1,ar2):
+    num = [random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar2),random.choice(ar2),random.choice(ar2)]
+    dupli = duplicate(num)
+    while (len(dupli) > 0):
+        for i in dupli:
+            if (i == 0):
+                num[i] = random.choice(ar1)
+            elif (i == 1 ):
+                num[i] = random.choice(ar1)
+            elif (i == 2 ):
+                num[i] = random.choice(ar1)
+            elif (i == 3 ):
+                num[i] = random.choice(ar1)
+            elif (i == 4 ):
+                num[i] = random.choice(ar1)
+            elif (i == 5 ):
+                num[i] = random.choice(ar1)
+            elif (i == 6 ):
+                num[i] = random.choice(ar1)
+            elif (i == 7 ):
+                num[i] = random.choice(ar1)
+            elif (i == 8 ):
+                num[i] = random.choice(ar2)
+            elif (i == 9 ):
+                num[i] = random.choice(ar2)
+        dupli = duplicate(num)            
+    num.sort()
+        
+    return num

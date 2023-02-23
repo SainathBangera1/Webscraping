@@ -54,7 +54,7 @@ for i in range(len(newData)):
                         day = newData[i][0]+j
                         month=newData[i][1]
                         year=newData[i][2]
-                        tmp_arr = [day,month,year,0,0,0,0,0,0,0,0,0,0,0]
+                        tmp_arr = [day,month,year,7,0,0,0,0,0]
                         missing_Arr.append([i,tmp_arr])
 
 missing_Arr = missing_Arr[::-1]
