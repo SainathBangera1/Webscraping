@@ -5,8 +5,10 @@ import random
 from dfunctions import dictFreq,odds,primes,sepratePrimes,seprateNonPrimes,duplicate,spitZero,prime,generateMODEL1,delElements,delElements1,generateMODEL2
 
 
+time = input("Please enter the time in PM: ")
+csvURL = time+'PM_Combined.csv'
 #KENO DATA
-dataOg = pd.read_csv('5PM_Combined.csv')
+dataOg = pd.read_csv(csvURL)
 data = np.array(dataOg[['Day','Month','Year','Digit1','Digit2','Digit3','Digit4','Digit5','Digit6','Digit7','Digit8','Digit9','Digit10','Digit11','Digit12','Digit13','Digit14','Digit15','Digit16','Digit17','Digit18','Digit19','Digit20']])
 
 newData = []
@@ -44,14 +46,14 @@ while (countNUM!=10):
     # ar1= delElements(num_arr,ar1,primeNums)
     # ar2= delElements1(num_arr,ar2,nonPrimesNums)
     predicated.append(num_arr)
-
-with open('modelONE5PM.csv','w+') as file:
+csvURL1='modelONE'+time+'PM.csv'
+with open(csvURL1,'w+') as file:
     myFile = csv.writer(file)
     myFile.writerow(['Digit1','Digit2','Digit3','Digit4','Digit5','Digit6','Digit7','Digit8','Digit9','Digit10'])
     for i in predicated:
         myFile.writerow(i)
 
-print("10 nums generated in modelONE5PM.csv")
+print(f"10 nums generated in modelONE{time}PM.csv")
 
 # ############################### 2ND MODEL - 7 PRIME , 3 NON-PRIME
 
@@ -66,10 +68,11 @@ while (countNUM!=10):
     # ar2= delElements1(num_arr,ar2,nonPrimesNums)
     predicated.append(num_arr)
 
-with open('modelTWO5PM.csv','w+') as file:
+csvURL2='modelTWO'+time+'PM.csv'
+with open(csvURL2,'w+') as file:
     myFile = csv.writer(file)
     myFile.writerow(['Digit1','Digit2','Digit3','Digit4','Digit5','Digit6','Digit7','Digit8','Digit9','Digit10'])
     for i in predicated:
         myFile.writerow(i)
 
-print("10 nums generated in modelTWO5PM.csv")
+print(f"10 nums generated in modelTWO{time}PM.csv")
