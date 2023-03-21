@@ -3,6 +3,8 @@
 from bs4 import BeautifulSoup
 import re
 import csv
+import pandas as pd
+import numpy as np
 
 dataSetArray = []
 ball_Array = []
@@ -13,7 +15,7 @@ date_ArrayString = []
 date_Array = []
 date_Test = []
 
-for i in range(2009, 2023):
+for i in range(2009, 2024):
     year = i
     # Opening the html file. If the file
     # is present in different location,
@@ -188,7 +190,7 @@ for y in range(len(date_Array)):
 ball_Array = []
 jolly_Array = []
 superStar_Array = []
-for i in range(2009, 2023):
+for i in range(2009, 2024):
     year = i
     # Opening the html file. If the file
     # is present in different location,
@@ -265,7 +267,7 @@ for m in range(len(dataSetArray)):
 ascendingOrder = []
 
 # helps to arrange the data in ascending sequence of month with dates
-for x in range(2009, 2023):
+for x in range(2009, 2024):
     setArray = []
     for y in range(len(newDataSetArray)):
         if (newDataSetArray[y][0][2] == x):
@@ -284,3 +286,30 @@ with open('dataset.csv', 'w+') as file:
     myFile.writerow(description)
     for i in range(len(ascendingOrder)):
         myFile.writerow(ascendingOrder[i])
+
+
+
+dataOg = pd.read_csv('dataset.csv')
+
+data2 = np.array(dataOg[['List_Date', 'Date', '1st Digit', '2nd Digit', '3rd Digit',
+               '4th Digit', '5th Digit', '6th Digit']])
+
+testData = []
+
+for i in data2:
+    tmpData=eval(i[0])
+    actualData = [tmpData[0],tmpData[1],tmpData[2],i[2],i[3],i[4],i[5],i[6],i[7]]
+    testData.append(actualData)
+
+
+description2 = ['Day', 'Month','Year', 'Digit1', 'Digit2', 'Digit3',
+               'Digit4', 'Digit5', 'Digit6']
+
+# creates and makes the CSV file for storing data in sequence of year
+with open('Superena.csv', 'w+') as file:
+    myFile = csv.writer(file)
+    myFile.writerow(description2)
+    for i in range(len(testData)):
+        myFile.writerow(testData[i])
+
+print("Done Writing Superena.csv file  . . . . ")

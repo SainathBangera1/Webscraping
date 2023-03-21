@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import csv
 import random
-from dfunctions import dictFreq,odds,primes,sepratePrimes,seprateNonPrimes,duplicate,spitZero,prime
+from dfunctions import dictFreq,odds,primes,grt50Nprime,spitZero,prime
 
 time = input("Please enter the time in PM: ")
 csvURL = time+'PM_Combined.csv'
@@ -27,9 +27,14 @@ for k in primeData:
     primeCount.append(k[0])
     nonPrimeCount.append(k[1])
 
-print(f"Primes in a row minimum: {max(primeCount)} %")
-print(f"NonPrimes in a row minimum: {max(nonPrimeCount)} %")
+# print(f"Primes in a row maximum: {max(primeCount)} %")
+# print(f"NonPrimes in a row maximum: {max(nonPrimeCount)} %")
+# print(f"NonPrimes in a row minimum: {min(nonPrimeCount)} %")
+
+
 
 #IN a row their are minimum ZERO prime numbers and then 5 prime numbers occured only in One day
+
+
 
 

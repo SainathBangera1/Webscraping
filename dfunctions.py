@@ -405,7 +405,7 @@ def primes(arr):
     resNonPrime = round(((nonPrimes)/len(arr))*100)
     return [resPrime,resNonPrime]
 
-# result = primes([5,24,29,30,33,37,40,46,47,49,53,55,59,61,62,63,67,71,76,78])
+# result = primes([1,9,11,16,20,32,34,35,36,37,39,40,45,47,50,63,74,77,78,79])
 # print(f"Primes : {result[0]} %")
 # print(f"Non Primes : {result[1]} %")
 
@@ -443,24 +443,33 @@ def spitZero(arr):
             tmp.append(i)
     return tmp
 
-def generateNum(ar1,ar2):
-    num = [random.choice(ar1),random.choice(ar1),random.choice(ar2),random.choice(ar2),random.choice(ar2)]
+def generateNum(ar1,ar2,ar3,ar4,ar5,ar6,ar7,ar8,ar9,ar10):
+    num = [random.choice(ar1),random.choice(ar2),random.choice(ar3),random.choice(ar4),random.choice(ar5),random.choice(ar6),random.choice(ar7),random.choice(ar8),random.choice(ar9),random.choice(ar10)]
     dupli = duplicate(num)
     while (len(dupli) > 0):
         for i in dupli:
             if (i == 0):
                 num[i] = random.choice(ar1)
             elif (i == 1 ):
-                num[i] = random.choice(ar1)
+                num[i] = random.choice(ar2)
             elif (i == 2 ):
-                num[i] = random.choice(ar2)
+                num[i] = random.choice(ar3)
             elif (i == 3 ):
-                num[i] = random.choice(ar2)
+                num[i] = random.choice(ar4)
             elif (i == 4 ):
-                num[i] = random.choice(ar2)
+                num[i] = random.choice(ar5)
+            elif (i == 5 ):
+                num[i] = random.choice(ar6)
+            elif (i == 6 ):
+                num[i] = random.choice(ar7)
+            elif (i == 7 ):
+                num[i] = random.choice(ar8)
+            elif (i == 8 ):
+                num[i] = random.choice(ar9)
+            elif (i == 9 ):
+                num[i] = random.choice(ar10)
         dupli = duplicate(num)            
-    num.sort()
-        
+    # num.sort() 
     return num
 
 def compareList(arr1,arr2):
@@ -478,78 +487,152 @@ def compareList(arr1,arr2):
 
 def delElements(ar1,ar2,ogData):
     for i in ar1:
-        if(len(ar2)==1):
-            ar2 = np.copy(ogData)
-        if(i in ar2):
-            ar2=np.delete(ar2, np.where(ar2 == i))
-    return ar2
-
-def delElements1(ar1,ar2,ogData):
-    for i in ar1:
-        if(len(ar2)==1):
+        if(len(ar2)<6):
             ar2 = np.copy(ogData)
         if(i in ar2):
             ar2=np.delete(ar2, np.where(ar2 == i))
     return ar2
 
 
-def generateMODEL1(ar1,ar2):
-    num = [random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar2),random.choice(ar2),random.choice(ar2),random.choice(ar2),random.choice(ar2),random.choice(ar2)]
+# def delElements1(ar1,ar2,ogData):
+#     for i in ar1:
+#         if(len(ar2)==1):
+#             ar2 = np.copy(ogData)
+#         if(i in ar2):
+#             ar2=np.delete(ar2, np.where(ar2 == i))
+#     return ar2
+
+
+def generateMODEL1(arr):
+    num = [random.choice(arr[:29]),random.choice(arr[:29]),random.choice(arr[:29]),random.choice(arr[:29]),random.choice(arr[:29]),random.choice(arr[29:]),random.choice(arr[29:]),random.choice(arr[29:]),random.choice(arr[29:]),random.choice(arr[29:])]
     dupli = duplicate(num)
     while (len(dupli) > 0):
         for i in dupli:
             if (i == 0):
-                num[i] = random.choice(ar1)
+                num[i] = random.choice(arr[:29])
             elif (i == 1 ):
-                num[i] = random.choice(ar1)
+                num[i] = random.choice(arr[:29])
             elif (i == 2 ):
-                num[i] = random.choice(ar1)
+                num[i] = random.choice(arr[:29])
             elif (i == 3 ):
-                num[i] = random.choice(ar1)
+                num[i] = random.choice(arr[:29])
             elif (i == 4 ):
-                num[i] = random.choice(ar2)
+                num[i] = random.choice(arr[:29])
             elif (i == 5 ):
-                num[i] = random.choice(ar2)
+                num[i] = random.choice(arr[29:])
             elif (i == 6 ):
-                num[i] = random.choice(ar2)
+                num[i] = random.choice(arr[29:])
             elif (i == 7 ):
-                num[i] = random.choice(ar2)
+                num[i] = random.choice(arr[29:])
             elif (i == 8 ):
-                num[i] = random.choice(ar2)
+                num[i] = random.choice(arr[29:])
             elif (i == 9 ):
-                num[i] = random.choice(ar2)
+                num[i] = random.choice(arr[29:])
         dupli = duplicate(num)            
     num.sort()
         
     return num
 
 
-def generateMODEL2(ar1,ar2):
-    num = [random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar1),random.choice(ar2),random.choice(ar2),random.choice(ar2)]
+def generateMODEL2(arr):
+    num = [random.choice(arr),random.choice(arr),random.choice(arr),random.choice(arr),random.choice(arr),random.choice(arr),random.choice(arr),random.choice(arr),random.choice(arr),random.choice(arr)]
+    dupli = duplicate(num)
+    while (len(dupli) > 0):
+        for i in dupli:
+            if (i == 0):
+                num[i] = random.choice(arr)
+            elif (i == 1 ):
+                num[i] = random.choice(arr)
+            elif (i == 2 ):
+                num[i] = random.choice(arr)
+            elif (i == 3 ):
+                num[i] = random.choice(arr)
+            elif (i == 4 ):
+                num[i] = random.choice(arr)
+            elif (i == 5 ):
+                num[i] = random.choice(arr)
+            elif (i == 6 ):
+                num[i] = random.choice(arr)
+            elif (i == 7 ):
+                num[i] = random.choice(arr)
+            elif (i == 8 ):
+                num[i] = random.choice(arr)
+            elif (i == 9 ):
+                num[i] = random.choice(arr)
+        dupli = duplicate(num)            
+    num.sort()
+        
+    return num
+
+
+def frequency(num,arr):
+    count=0
+    for i in arr:
+        if(num==i):
+            count+=1
+    return count
+
+
+def grt50Nprime(arr):
+    ct50=0
+    for i in arr:
+        if(prime(i)==0 and i<50):
+            ct50+=1
+    return ct50
+
+
+def next_number(arr):
+    """
+    Takes an array of non-sequential numbers and returns the next possible number in the sequence.
+    """
+    # Sort the array in ascending order
+    arr = sorted(arr)
+    
+    # Find the difference between each adjacent pair of numbers in the array
+    diffs = [arr[i+1] - arr[i] for i in range(len(arr)-1)]
+    
+    # Find the index of the first difference that is not 1
+    idx = next((i for i, x in enumerate(diffs) if x != 1), None)
+    
+    # If all differences are 1, return the last element of the array plus 1
+    if idx is None:
+        return arr[-1] + 1
+    
+    # Otherwise, return the number that comes after the last number in the first sequential block
+    else:
+        return arr[idx] + 1
+
+def checkit(stored,newNum):
+    for i in stored:
+        for j in i:
+            if (j in newNum):
+                return True    
+
+def superenaNum(ar1,ar2,ar3,ar4,ar5,ar6):
+    num = [random.choice(ar1),random.choice(ar2),random.choice(ar3),random.choice(ar4),random.choice(ar5),random.choice(ar6)]
     dupli = duplicate(num)
     while (len(dupli) > 0):
         for i in dupli:
             if (i == 0):
                 num[i] = random.choice(ar1)
             elif (i == 1 ):
-                num[i] = random.choice(ar1)
+                num[i] = random.choice(ar2)
             elif (i == 2 ):
-                num[i] = random.choice(ar1)
+                num[i] = random.choice(ar3)
             elif (i == 3 ):
-                num[i] = random.choice(ar1)
+                num[i] = random.choice(ar4)
             elif (i == 4 ):
-                num[i] = random.choice(ar1)
+                num[i] = random.choice(ar5)
             elif (i == 5 ):
-                num[i] = random.choice(ar1)
-            elif (i == 6 ):
-                num[i] = random.choice(ar1)
-            elif (i == 7 ):
-                num[i] = random.choice(ar1)
-            elif (i == 8 ):
-                num[i] = random.choice(ar2)
-            elif (i == 9 ):
-                num[i] = random.choice(ar2)
+                num[i] = random.choice(ar6)
         dupli = duplicate(num)            
-    num.sort()
-        
+    # num.sort() 
     return num
+
+
+def verticalFreq(arr1,arr2):
+    for i in arr1:
+        for j in arr2:
+            if(i[0]==j[0]):
+                j.append(i[1])
+    return arr2

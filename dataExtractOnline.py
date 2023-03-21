@@ -8,7 +8,7 @@ original_stdout = sys.stdout
 
 # as an example, taken my article list
 # published link page and stored in local
-for i in range(2009, 2023):
+for i in range(2009, 2024):
     with urllib.request.urlopen('https://www.superenalotto.net/en/results/'+str(i)) as webPageResponse:
         outputHtml = webPageResponse.read()
     # Scraped contents are placed in
