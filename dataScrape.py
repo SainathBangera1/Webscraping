@@ -292,18 +292,18 @@ with open('dataset.csv', 'w+') as file:
 dataOg = pd.read_csv('dataset.csv')
 
 data2 = np.array(dataOg[['List_Date', 'Date', '1st Digit', '2nd Digit', '3rd Digit',
-               '4th Digit', '5th Digit', '6th Digit']])
+               '4th Digit', '5th Digit', '6th Digit','7th Digit','8th Digit']])
 
 testData = []
 
 for i in data2:
     tmpData=eval(i[0])
-    actualData = [tmpData[0],tmpData[1],tmpData[2],i[2],i[3],i[4],i[5],i[6],i[7]]
+    actualData = [tmpData[0],tmpData[1],tmpData[2],i[2],i[3],i[4],i[5],i[6],i[7],i[8],i[9]]
     testData.append(actualData)
 
 
 description2 = ['Day', 'Month','Year', 'Digit1', 'Digit2', 'Digit3',
-               'Digit4', 'Digit5', 'Digit6']
+               'Digit4', 'Digit5', 'Digit6','Digit7','Digit8']
 
 # creates and makes the CSV file for storing data in sequence of year
 with open('Superena.csv', 'w+') as file:

@@ -6,6 +6,7 @@ from itertools import accumulate
 import numpy as np
 
 
+
 weekdays = ["Sunday", "Monday", "Tuesday",
             "Wednesday", "Thursday", "Friday", "Saturday"]
 
@@ -636,3 +637,121 @@ def verticalFreq(arr1,arr2):
             if(i[0]==j[0]):
                 j.append(i[1])
     return arr2
+
+                    
+def date_to_Timestamp(dateTime):
+    # current date and time
+    datetime_str = dateTime
+
+    datetime_object = dt.strptime(datetime_str, '%d/%m/%y %H:%M:%S')
+
+    timestamp = dt.timestamp(datetime_object)
+
+    return timestamp
+
+#timestamp = int(date_to_Timestamp('07/01/09 20:00:00'))
+
+# def findSeed(timestp,target):
+#     seed=timestp
+
+#     while (True):
+        
+#         np.random.seed(seed)
+        
+#         nums = np.random.randint(1,91,size=6)
+#         nums.sort()
+#         if(len(list(set(target)-set(nums)))==0):
+#             return seed
+#         else:
+#             pass
+#         seed+=1
+
+#print(findSeed(timestamp,[25,28,36,45,48,86]))
+# diff = timestamp
+# print(diff)
+# np.random.seed(diff)
+# nums = np.random.randint(1,91,size=6)
+# print(nums)
+
+def findSeed(timestp,target_Arr):
+    tmp_arr=[]
+    for i in range(len(target_Arr)):
+        target=target_Arr[i]
+        seed=timestp
+        while (True):
+            np.random.seed(seed)
+            num=0
+            if(i==0):
+                num = np.random.randint(1,66)
+            if(i==1):
+                num = np.random.randint(2,83)
+            if(i==2):
+                num = np.random.randint(4,86)
+            if(i==3):
+                num = np.random.randint(9,88)
+            if(i==4):
+                num = np.random.randint(14,90)
+            if(i==5):
+                num = np.random.randint(26,91)
+            if(i==6):
+                num = np.random.randint(1,91)
+            if(i==7):
+                num = np.random.randint(1,91)
+            if(num==target):
+                tmp_arr.append(seed)
+                break
+            else:
+                pass
+            seed+=1
+    return tmp_arr
+
+#print(findSeed(timestamp,[25,28,36,45,48,86]))
+
+# diff = findSeed(timestamp,[14,31,35,40,50,66])
+
+# newNums=[]
+# for i in diff:
+#     np.random.seed(i)
+#     num = np.random.randint(1,91)
+#     newNums.append(num)
+# print(diff)
+# print(newNums)
+
+def giveSEED(timestamp,target_Arr,realNum,index):
+    for i in target_Arr:
+        seedlings = timestamp+i
+        num=0
+        np.random.seed(seedlings)
+        if(index==0):
+            num=np.random.randint(1,66)
+        if(index==1):
+            num=np.random.randint(2,83)
+        if(index==2):
+            num=np.random.randint(4,86)
+        if(index==3):
+            num=np.random.randint(9,88)
+        if(index==4):
+            num=np.random.randint(14,90)
+        if(index==5):
+            num=np.random.randint(26,91)
+        if(index==6):
+            num=np.random.randint(1,91)
+        if(index==7):
+            num=np.random.randint(1,91)
+        if(num==realNum[index]):
+            return seedlings
+    
+# def seedDELTA(timestamp,target_Arr,index,minNum,maxNum,realNum):
+#     for i in target_Arr[index]:
+#         seedling=timestamp+i
+#         np.random.seed(seedling)
+#         num=np.random.randint(minNum,maxNum+1)
+#         if(realNum[index]==num):
+#             return seedling
+        
+        
+
+
+
+    
+
