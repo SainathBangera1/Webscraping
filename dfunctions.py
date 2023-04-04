@@ -748,10 +748,80 @@ def giveSEED(timestamp,target_Arr,realNum,index):
 #         num=np.random.randint(minNum,maxNum+1)
 #         if(realNum[index]==num):
 #             return seedling
+
+def generateMODELTimestamp(arr):
+    num = [random.choice(arr[0]),random.choice(arr[1]),random.choice(arr[2]),random.choice(arr[3]),random.choice(arr[4]),random.choice(arr[5])]
+    dupli = duplicate(num)
+    while (len(dupli) > 0):
+        for i in dupli:
+            if (i == 0):
+                num[i] = random.choice(arr[0])
+            elif (i == 1 ):
+                num[i] = random.choice(arr[1])
+            elif (i == 2 ):
+                num[i] = random.choice(arr[2])
+            elif (i == 3 ):
+                num[i] = random.choice(arr[3])
+            elif (i == 4 ):
+                num[i] = random.choice(arr[4])
+            elif (i == 5 ):
+                num[i] = random.choice(arr[5])
+            elif (i == 6 ):
+                num[i] = random.choice(arr[6])
+            elif (i == 7 ):
+                num[i] = random.choice(arr[7])
+        dupli = duplicate(num)            
         
-        
+    return num
 
 
+def genNUMtimestamp(timestamp,arr):
+    tmp_num_arr=generateMODELTimestamp(arr)
+    timestamp_arr = []
+    for i in tmp_num_arr:
+        tm=timestamp+i
+        timestamp_arr.append(tm)
+    return timestamp_arr           
 
-    
+def getNumfromSEED(seedling,index):
+    np.random.seed(seedling)
+    num=0
+    if(index==0):
+            num=np.random.randint(1,66)
+            return num
+    if(index==1):
+            num=np.random.randint(2,83)
+            return num
+    if(index==2):
+            num=np.random.randint(4,86)
+            return num
+    if(index==3):
+            num=np.random.randint(9,88)
+            return num
+    if(index==4):
+            num=np.random.randint(14,90)
+            return num
+    if(index==5):
+            num=np.random.randint(26,91)
+            return num
+    if(index==6):
+            num=np.random.randint(1,91)
+            return num
+    if(index==7):
+            num=np.random.randint(1,91)
+            return num
 
+#Recurssion function for Arithematic progression
+def reApfunction(arr,val):
+    count=val
+    newArr=[]
+    for i in range(len(arr)):
+        if(i+1<len(arr)):
+            newArr.append(arr[i+1]-arr[i])
+    if(len(list(set(newArr)))==1):
+        print(newArr)
+        return count
+    print(newArr)
+    return reApfunction(newArr,count+1)
+#input = [2,4,6,8,10,12,14]
+# print(reApfunction(tmp_data,1))
